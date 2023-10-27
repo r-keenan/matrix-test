@@ -1,41 +1,34 @@
 // [state, license, docArray]
 var licenseMatrix = [
-    ["Hey", "There", ["A", "B", "C"]],
+    ["Hi", "Sir", ["A", "B", "C"]],
     ["Hello", "World", ["A", "B", "C", "D"]],
+    ["Hey", "There", ["A", "B", "C"]],
 ];
-var requiredDocs = [];
-function nestedForArray(stateQuery, licenseQuery, arr) {
+function printRequiredDocs(stateQuery, licenseQuery, arr) {
+    var requiredDocs = [];
+    var superbReqDocs = ["1", "2", "3", "4", "5"];
     var loopState = "";
     var loopLicense = "";
     for (var i = 0; i < arr.length; i++) {
         var state = arr[i];
         for (var j = 0; j < state.length; j++) {
             var license = arr[j];
-            //console.log(state);
-            if (Array.isArray(arr[i][j])) {
-                //console.log(state);
-                //console.log(license);
-                var docs = arr[i][j];
-                Array.isArray(docs) ? requiredDocs.push.apply(requiredDocs, docs) : [];
-            }
-            else if (!Array.isArray(arr[i][j]) && j === 0) {
+            if (!Array.isArray(arr[i][j]) && j === 0) {
                 loopState = arr[i][j];
-                if (loopState === stateQuery) {
-                    console.log("loopState: ".concat(loopState));
-                }
             }
             else if (!Array.isArray(arr[i][j]) && j === 1) {
                 loopLicense = arr[i][j];
-                if (loopLicense === licenseQuery) {
-                    console.log("loopLicense: ".concat(loopLicense));
-                }
-                //const flattenedArray = arr.flat();
-                //loopLicense = arr.flat();
-                //loopLicense = arr[j];
-                //console.log(flattenedArray);
+            }
+            else if (Array.isArray(arr[i][j]) &&
+                loopState === stateQuery &&
+                loopLicense === licenseQuery) {
+                var docs = arr[i][j];
+                Array.isArray(docs) ? requiredDocs.push.apply(requiredDocs, docs) : [];
             }
         }
     }
-    //console.log(requiredDocs);
+    requiredDocs.push.apply(requiredDocs, superbReqDocs);
+    console.log(requiredDocs);
+    return requiredDocs;
 }
-nestedForArray("Hello", "World", licenseMatrix);
+printRequiredDocs("Hello", "World", licenseMatrix);
