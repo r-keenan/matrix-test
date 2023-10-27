@@ -6,8 +6,8 @@ const licenseMatrix: [string, string, string[]][] = [
 ];
 
 function printRequiredDocs(
-  stateQuery: string,
-  licenseQuery: string,
+  state: string,
+  license: string,
   arr: [string, string, string[]][]
 ) {
   const requiredDocs: string[] = [];
@@ -23,8 +23,8 @@ function printRequiredDocs(
         loopLicense = arr[i][j];
       } else if (
         Array.isArray(arr[i][j]) &&
-        loopState === stateQuery &&
-        loopLicense === licenseQuery
+        loopState === state &&
+        loopLicense === license
       ) {
         var docs = arr[i][j];
         Array.isArray(docs) ? requiredDocs.push(...docs) : [];

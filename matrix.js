@@ -4,7 +4,7 @@ var licenseMatrix = [
     ["Hello", "World", ["A", "B", "C", "D"]],
     ["Hey", "There", ["M", "N", "O"]],
 ];
-function printRequiredDocs(stateQuery, licenseQuery, arr) {
+function printRequiredDocs(state, license, arr) {
     var requiredDocs = [];
     var superbReqDocs = ["1", "2", "3", "4", "5"];
     for (var i = 0; i < arr.length; i++) {
@@ -18,8 +18,8 @@ function printRequiredDocs(stateQuery, licenseQuery, arr) {
                 loopLicense = arr[i][j];
             }
             else if (Array.isArray(arr[i][j]) &&
-                loopState === stateQuery &&
-                loopLicense === licenseQuery) {
+                loopState === state &&
+                loopLicense === license) {
                 var docs = arr[i][j];
                 Array.isArray(docs) ? requiredDocs.push.apply(requiredDocs, docs) : [];
             }
