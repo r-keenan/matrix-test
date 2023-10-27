@@ -12,7 +12,6 @@ function printRequiredDocs(stateQuery, licenseQuery, arr) {
     for (var i = 0; i < arr.length; i++) {
         var state = arr[i];
         for (var j = 0; j < state.length; j++) {
-            var license = arr[j];
             if (!Array.isArray(arr[i][j]) && j === 0) {
                 loopState = arr[i][j];
             }
