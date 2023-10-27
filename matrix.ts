@@ -1,8 +1,8 @@
 // [state, license, docArray]
 const licenseMatrix: [string, string, string[]][] = [
-  ["Hi", "Sir", ["A", "B", "C"]],
+  ["Hi", "Sir", ["T", "R", "S"]],
   ["Hello", "World", ["A", "B", "C", "D"]],
-  ["Hey", "There", ["A", "B", "C"]],
+  ["Hey", "There", ["M", "N", "O"]],
 ];
 
 function printRequiredDocs(
