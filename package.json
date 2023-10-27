@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+  }
+}
