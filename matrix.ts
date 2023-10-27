@@ -13,11 +13,10 @@ function printRequiredDocs(
   const requiredDocs: string[] = [];
   const superbReqDocs = ["1", "2", "3", "4", "5"];
 
-  let loopState = "";
-  let loopLicense = "";
   for (var i = 0; i < arr.length; i++) {
-    var state = arr[i];
-    for (var j = 0; j < state.length; j++) {
+    let loopState = "";
+    let loopLicense = "";
+    for (var j = 0; j < arr[i].length; j++) {
       if (!Array.isArray(arr[i][j]) && j === 0) {
         loopState = arr[i][j];
       } else if (!Array.isArray(arr[i][j]) && j === 1) {
@@ -30,6 +29,9 @@ function printRequiredDocs(
         var docs = arr[i][j];
         Array.isArray(docs) ? requiredDocs.push(...docs) : [];
       }
+    }
+    if (requiredDocs.length > 0) {
+      break;
     }
   }
   requiredDocs.push(...superbReqDocs);
