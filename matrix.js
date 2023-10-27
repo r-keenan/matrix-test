@@ -4,7 +4,7 @@ var licenseMatrix = [
     ["Hello", "World", ["A", "B", "C", "D"]],
 ];
 var requiredDocs = [];
-function nestedForArray(stateName, licenseName, arr) {
+function nestedForArray(stateQuery, licenseQuery, arr) {
     var loopState = "";
     var loopLicense = "";
     for (var i = 0; i < arr.length; i++) {
@@ -20,11 +20,15 @@ function nestedForArray(stateName, licenseName, arr) {
             }
             else if (!Array.isArray(arr[i][j]) && j === 0) {
                 loopState = arr[i][j];
-                console.log("loopState: ".concat(loopState));
+                if (loopState === stateQuery) {
+                    console.log("loopState: ".concat(loopState));
+                }
             }
             else if (!Array.isArray(arr[i][j]) && j === 1) {
                 loopLicense = arr[i][j];
-                console.log("loopLicense: ".concat(loopLicense));
+                if (loopLicense === licenseQuery) {
+                    console.log("loopLicense: ".concat(loopLicense));
+                }
                 //const flattenedArray = arr.flat();
                 //loopLicense = arr.flat();
                 //loopLicense = arr[j];
